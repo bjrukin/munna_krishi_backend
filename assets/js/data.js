@@ -484,7 +484,7 @@ const SYNOPSIS_DATA = {
     'Conduct quality inspection and certification.',
     'Clean, grade, package, label, and brand agricultural products.',
     'Store products in cold chain facilities where necessary.',
-    'Distribute products through Munaa Agro Mart, retail outlets, institutional buyers, and home delivery services.',
+    'Through Munaa marts, retailers, and home delivery.',
     'Promote selected high-value agricultural commodities in international markets.'
   ],
   whyMunaa: [

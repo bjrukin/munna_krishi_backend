@@ -67,7 +67,7 @@
 
         <figure style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; box-shadow: var(--shadow-sm);">
           <div style="overflow-x: auto; padding: 1.5rem;" tabindex="0" aria-label="Scrollable organization chart">
-            <img src="{{ asset('assets/images/about/organization-chart.svg') }}" alt="Munaa Krishi organizational structure chart" width="1442" height="1060" style="min-width: 780px; width: 100%; height: auto;">
+            <img loading="lazy" decoding="async" src="{{ asset('assets/images/about/organization-chart.svg') }}" alt="Munaa Krishi organizational structure chart" width="1442" height="1060" style="min-width: 780px; width: 100%; height: auto;">
           </div>
           <figcaption style="border-top: 1px solid var(--color-line); padding: 0.75rem 1.25rem; font-size: 0.85rem; color: var(--color-muted); text-align: center;">
             Scroll horizontally to view the full organizational structure of Munaa Krishi Limited.
@@ -180,7 +180,7 @@
           @foreach($achievements as $achievement)
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; box-shadow: var(--shadow-sm); text-align: center; padding: 1.5rem; border-radius: 4px;">
               @if($achievement->image)
-                <img src="{{ $achievement->url_image }}" alt="{{ $achievement->name }}" style="max-height: 100px; object-fit: contain; margin: 0 auto 1rem;">
+                <img loading="lazy" decoding="async" src="{{ $achievement->url_image }}" alt="{{ $achievement->name }}" style="max-height: 100px; object-fit: contain; margin: 0 auto 1rem;">
               @endif
               <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-forest);">{{ $achievement->name }}</h3>
             </div>

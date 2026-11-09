@@ -3,7 +3,7 @@
   @if(isset($banners) && $banners->isNotEmpty())
     @foreach($banners as $bIndex => $banner)
       <div class="hero-slide {{ $bIndex === 0 ? 'active' : '' }}">
-        <img src="{{ (str_starts_with($banner->image, 'assets/') || str_starts_with($banner->image, 'http')) ? asset($banner->image) : asset('storage/uploads/banner/' . $banner->image) }}" alt="{{ $banner->name }}" class="hero-slide-img">
+        <img src="{{ (str_starts_with($banner->image, 'assets/') || str_starts_with($banner->image, 'http')) ? asset($banner->image) : asset('storage/uploads/banner/' . $banner->image) }}" alt="{{ $banner->name }}" class="hero-slide-img" loading="{{ $bIndex === 0 ? 'eager' : 'lazy' }}" decoding="async" @if($bIndex === 0) fetchpriority="high" @endif>
         <div class="hero-slide-overlay"></div>
         <div class="container hero-content-wrap">
           <div class="hero-content">
@@ -21,7 +21,7 @@
   @else
     <!-- Slide 1 -->
     <div class="hero-slide active">
-      <img src="{{ asset('assets/images/farms/nepal-terrace-farm.jpg') }}" alt="Terraced agricultural fields in Nepal" class="hero-slide-img">
+      <img src="{{ asset('assets/images/farms/nepal-terrace-farm.jpg') }}" alt="Terraced agricultural fields in Nepal" class="hero-slide-img" loading="eager" decoding="async" fetchpriority="high">
       <div class="hero-slide-overlay"></div>
       <div class="container hero-content-wrap">
         <div class="hero-content">
@@ -38,7 +38,7 @@
 
     <!-- Slide 2 -->
     <div class="hero-slide">
-      <img src="{{ asset('assets/images/gallery/farmer-cutting-millet.jpg') }}" alt="Farmer working with harvest" class="hero-slide-img">
+      <img src="{{ asset('assets/images/gallery/farmer-cutting-millet.jpg') }}" alt="Farmer working with harvest" class="hero-slide-img" loading="lazy" decoding="async">
       <div class="hero-slide-overlay"></div>
       <div class="container hero-content-wrap">
         <div class="hero-content">
@@ -55,7 +55,7 @@
 
     <!-- Slide 3 -->
     <div class="hero-slide">
-      <img src="{{ asset('assets/images/farms/nepal-terrace-farm.jpg') }}" alt="Agricultural products ready for market" class="hero-slide-img">
+      <img src="{{ asset('assets/images/farms/nepal-terrace-farm.jpg') }}" alt="Agricultural products ready for market" class="hero-slide-img" loading="lazy" decoding="async">
       <div class="hero-slide-overlay"></div>
       <div class="container hero-content-wrap">
         <div class="hero-content">

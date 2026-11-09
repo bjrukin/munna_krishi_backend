@@ -1,5 +1,7 @@
 @extends('layout.site')
 
+@section('body_class', 'home-page')
+
 @section('content')
   @include('site._partial.ticker')
 

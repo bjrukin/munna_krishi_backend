@@ -6,7 +6,7 @@
             <div class="block-para wrap-60 wrap-100">
                 <blockquote>{!! $leadership->summary !!}</blockquote>
             </div>
-            <div class="mgmt_banner-bg"> <img src="{{ $leadership->url_image }}" alt="{{ $leadership->name }}">
+            <div class="mgmt_banner-bg"> <img loading="lazy" decoding="async" src="{{ $leadership->url_image }}" alt="{{ $leadership->name }}">
                 <div class="leader-message">
                     <div class="p_d-tx">
                         <h3>{{ $leadership->name }}</h3>
@@ -15,7 +15,7 @@
                     <div>{!! $leadership->information !!}</div>
                 </div>
             </div>
-            <div class="mgmt_banner-sm"> <img src="{{ $leadership->url_mobile_image }}" alt="{{ $leadership->name }}">
+            <div class="mgmt_banner-sm"> <img loading="lazy" decoding="async" src="{{ $leadership->url_mobile_image }}" alt="{{ $leadership->name }}">
                 <div class="leader-message">
                     <div class="p_d-tx">
                         <h3>{{ $leadership->name }}</h3>

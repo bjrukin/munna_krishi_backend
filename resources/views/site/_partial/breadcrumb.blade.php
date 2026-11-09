@@ -8,7 +8,7 @@
 
 <!-- Page Banner -->
 <section class="page-banner">
-  <img src="{{ (str_starts_with($bg_image, 'assets/') || str_starts_with($bg_image, 'http')) ? asset($bg_image) : asset('storage/uploads/' . $bg_image) }}" alt="{{ $title }}" class="page-banner-bg">
+  <img src="{{ (str_starts_with($bg_image, 'assets/') || str_starts_with($bg_image, 'http')) ? asset($bg_image) : asset('storage/uploads/' . $bg_image) }}" alt="{{ $title }}" class="page-banner-bg" loading="eager" decoding="async" fetchpriority="high">
   <div class="page-banner-overlay"></div>
   <div class="container">
     <nav class="breadcrumbs" aria-label="Breadcrumb">

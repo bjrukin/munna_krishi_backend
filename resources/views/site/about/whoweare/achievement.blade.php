@@ -10,7 +10,7 @@
                 @foreach ($achievements as $achievement)
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="item-column">
-                        <div class="item-widget-container"> <img src="{{ $achievement->url_image }}"
+                        <div class="item-widget-container"> <img loading="lazy" decoding="async" src="{{ $achievement->url_image }}"
                                 alt="{{ $achievement->name }}">
                         </div>
                         <div class="item-element-container">

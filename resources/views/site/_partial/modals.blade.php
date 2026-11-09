@@ -1,18 +1,20 @@
-@php
-  $popupNotice = \App\Models\Notice::where('status', 1)->orderBy('date', 'desc')->first();
-@endphp
+@if($featured_notice ?? null)
 <!-- Notice Popup Modal -->
-<div id="notice-popup" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="notice-popup-title">
-  <div class="modal-dialog" style="max-width: 500px; padding: 0; overflow: hidden;">
+<div id="notice-popup" class="modal-backdrop notice-popup" role="dialog" aria-modal="true" aria-labelledby="notice-popup-title" aria-describedby="notice-popup-summary" data-notice-id="{{ $featured_notice->id }}" data-notice-version="{{ $featured_notice->updated_at->timestamp }}">
+  <article class="modal-dialog notice-popup-dialog">
     <button type="button" class="modal-close-btn" aria-label="Close notice">✕</button>
-    <figure>
-      <img src="{{ asset('assets/images/gallery/farmer-cutting-millet.jpg') }}" alt="{{ $popupNotice ? $popupNotice->name : 'Marpha apples are now available' }}" style="width: 100%; aspect-ratio: 4/3; object-fit: cover;">
-      <figcaption id="notice-popup-title" style="background-color: var(--color-forest-dark); border-top: 3px solid var(--color-haldi); padding: 1.25rem 1.5rem; color: #ffffff; font-size: 1.15rem; font-weight: 800;">
-        {{ $popupNotice ? $popupNotice->name : 'Marpha apples are now available at all outlets' }}
-      </figcaption>
-    </figure>
-  </div>
+    <div class="notice-popup-heading">
+      <span class="notice-popup-mark" aria-hidden="true">सूचना</span>
+      <p>{{ \Carbon\Carbon::parse($featured_notice->date)->format('F d, Y') }}</p>
+    </div>
+    <div class="notice-popup-content">
+      <h2 id="notice-popup-title">{{ $featured_notice->name }}</h2>
+      <p id="notice-popup-summary">{{ \Illuminate\Support\Str::limit(strip_tags($featured_notice->description), 220) }}</p>
+      <a class="btn btn-forest" href="{{ route('news.detail', \Illuminate\Support\Str::slug($featured_notice->name)) }}">Read full notice</a>
+    </div>
+  </article>
 </div>
+@endif
 
 <!-- Product Inquiry Modal -->
 <div id="product-inquiry-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="inquiry-modal-title">
@@ -82,7 +84,7 @@
   </div>
 
   <div class="lightbox-body">
-    <img src="{{ asset('assets/images/farms/nepal-terrace-farm.jpg') }}" alt="" class="lightbox-img">
+    <img loading="lazy" decoding="async" src="{{ asset('assets/images/farms/nepal-terrace-farm.jpg') }}" alt="" class="lightbox-img">
     <button type="button" class="lightbox-arrow prev" aria-label="Previous photo">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
     </button>

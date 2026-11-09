@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
   initMobileMenu();
   initLanguageSwitcher();
-  initNoticePopup();
   initCookieConsent();
   initHeroSlider();
+  initPageJourneyAnimations();
   initProductJourney();
   initFaqAccordions();
   initGalleryLightbox();
@@ -40,6 +40,52 @@ function initNavChevrons() {
       link.appendChild(chevron);
     }
   });
+}
+
+/* ==========================================================================
+   Homepage Journey Motion
+   ========================================================================== */
+function initPageJourneyAnimations() {
+  const page = document.querySelector('.home-page');
+  if (!page) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    page.classList.add('motion-disabled');
+    return;
+  }
+
+  const candidates = new Set();
+  const sections = page.querySelectorAll('main > section:not(.hero-slider)');
+
+  sections.forEach(section => {
+    section.querySelectorAll('.section-label, .section-title, .section-copy').forEach(element => candidates.add(element));
+    section.querySelectorAll('.product-card-wrap, .home-farm-card, .news-card, .journey-step, .what-we-do-step').forEach(element => candidates.add(element));
+    section.querySelectorAll('.lg-grid-2col > *, .md-grid-2col > *, .shopping-grid > *').forEach(element => candidates.add(element));
+  });
+
+  candidates.forEach((element, index) => {
+    element.classList.add('journey-reveal');
+    element.style.setProperty('--journey-delay', `${Math.min(index % 7, 5) * 70}ms`);
+
+    if (element.parentElement?.classList.contains('lg-grid-2col') || element.parentElement?.classList.contains('md-grid-2col')) {
+      element.dataset.motion = Array.from(element.parentElement.children).indexOf(element) % 2 === 0 ? 'left' : 'right';
+    } else {
+      element.dataset.motion = 'up';
+    }
+  });
+
+  page.classList.add('motion-ready');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  candidates.forEach(element => observer.observe(element));
 }
 
 /* ==========================================================================
@@ -238,51 +284,6 @@ function initLanguageSwitcher() {
 }
 
 /* ==========================================================================
-   4. Notice Popup Modal (Promotional Notice on Home page)
-   ========================================================================== */
-function initNoticePopup() {
-  const popup = document.querySelector('#notice-popup');
-  if (!popup) return;
-
-  const storageKey = `munaa-notice-dismissed-${NOTICE_DATA.id}`;
-  let dismissed = false;
-
-  try {
-    dismissed = sessionStorage.getItem(storageKey) === 'true';
-  } catch (e) {
-    dismissed = false;
-  }
-
-  if (!dismissed && NOTICE_DATA.enabled) {
-    setTimeout(() => {
-      popup.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }, 800);
-  }
-
-  const dismiss = () => {
-    popup.classList.remove('open');
-    document.body.style.overflow = '';
-    try {
-      sessionStorage.setItem(storageKey, 'true');
-    } catch (e) {}
-  };
-
-  const closeBtn = popup.querySelector('.modal-close-btn');
-  if (closeBtn) closeBtn.addEventListener('click', dismiss);
-
-  popup.addEventListener('click', (e) => {
-    if (e.target === popup) dismiss();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && popup.classList.contains('open')) {
-      dismiss();
-    }
-  });
-}
-
-/* ==========================================================================
    5. Cookie Consent Banner & Settings
    ========================================================================== */
 function initCookieConsent() {
@@ -459,7 +460,7 @@ function initProductJourney() {
     'Conduct quality inspection and certification.',
     'Clean, grade, package, label, and brand agricultural products.',
     'Store products in cold chain facilities where necessary.',
-    'Distribute products through Munaa Agro Mart, retail outlets, institutional buyers, and home delivery services.',
+    'Through Munaa marts, retailers, and home delivery.',
     'Promote selected high-value agricultural commodities in international markets.'
   ];
   const shortLabels = ['Collect', 'Transport', 'Inspect', 'Prepare', 'Cold store', 'Distribute', 'Export'];

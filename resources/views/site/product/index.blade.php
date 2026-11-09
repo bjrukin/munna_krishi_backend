@@ -41,27 +41,43 @@
           @if(count($products) > 0)
             @foreach($products as $product)
               <div class="product-card-wrap" data-category="{{ $product['category'] ?? 'grains' }}">
-                <article class="product-card">
-                  <div class="product-card-img-wrap">
-                    @php
-                      $pImg = $product['image'] ?? 'assets/images/products/rice-marsi.jpg';
-                      $imgUrl = (str_starts_with($pImg, 'http') || str_starts_with($pImg, 'assets/')) ? asset($pImg) : asset($pImg);
-                    @endphp
+                @php
+                  $pImg = $product['image'] ?? 'assets/images/products/rice-marsi.jpg';
+                  $imgUrl = str_starts_with($pImg, 'http') ? $pImg : asset($pImg);
+                  $category = $product['category'] ?? 'grains';
+                  $categoryLabel = [
+                    'grains' => 'Grains and Flour',
+                    'grains-and-flour' => 'Grains and Flour',
+                    'vegetables' => 'Vegetables',
+                    'fruits' => 'Fruits',
+                    'honey' => 'Honey',
+                    'dairy' => 'Dairy and Cheese',
+                    'tea-spices' => 'Tea and Spices',
+                    'tea-and-spices' => 'Tea and Spices',
+                    'pickles-dried' => 'Pickles and Dried Foods',
+                  ][$category] ?? str($category)->replace(['-', '_'], ' ')->title();
+                  $productUrl = route('products.detail', $product['slug']);
+                  $outletCount = $product['outlet_count'] ?? 5;
+                @endphp
+                <article class="product-card home-product-card">
+                  <a href="{{ $productUrl }}" class="home-product-image-link" aria-label="View {{ $product['name'] }}">
                     <img src="{{ $imgUrl }}" alt="{{ $product['name'] }}" class="product-card-img" loading="lazy">
                     @if(!empty($product['tag']))
                       <span class="product-season-badge">{{ $product['tag'] }}</span>
                     @endif
-                  </div>
-                  <div class="product-card-body">
-                    <span class="product-card-origin">{{ $product['district'] ?? 'Nepal' }}</span>
-                    <h3 class="product-card-title">
-                      <a href="{{ route('products.detail', $product['slug']) }}">{{ $product['name'] }}</a>
-                    </h3>
-                    <p class="product-card-nepali">{{ $product['nepali'] }}</p>
-                    <p class="product-card-short">{{ $product['description'] }}</p>
-                    <div class="product-card-footer">
-                      <span class="product-pack">{{ $product['unit'] ? 'Per ' . $product['unit'] : 'Pack' }}</span>
-                      <a href="{{ route('products.detail', $product['slug']) }}" class="product-view-btn">View details →</a>
+                  </a>
+                  <div class="home-product-card-body">
+                    <p class="home-product-category">{{ $categoryLabel }}</p>
+                    <h3 class="home-product-title"><a href="{{ $productUrl }}">{{ $product['name'] }}</a></h3>
+                    <div class="home-product-meta">
+                      <span>
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                        {{ $product['district'] ?? 'Nepal' }}
+                      </span>
+                      <span>
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10v10h16V10M3 10l2-6h14l2 6M3 10c0 2 3 3 4.5 0 0 2 3 3 4.5 0 0 2 3 3 4.5 0 0 2 3 2 4.5 0M9 20v-5h6v5"/></svg>
+                        {{ $outletCount }} {{ Str::plural('outlet', $outletCount) }}
+                      </span>
                     </div>
                   </div>
                 </article>

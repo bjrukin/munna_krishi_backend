@@ -14,17 +14,12 @@
       @if(isset($latest_notices) && $latest_notices->isNotEmpty())
         @foreach($latest_notices as $idx => $newsItem)
           @php
-            $defaultImgs = [
-              'assets/images/gallery/farmer-cutting-millet.jpg',
-              'assets/images/farms/beekeeper-field.jpg',
-              'assets/images/products/greens-seasonal.jpg'
-            ];
-            $nImg = $defaultImgs[$idx % count($defaultImgs)];
+            $nImg = $newsItem->display_image;
             $nSlug = \Illuminate\Support\Str::slug($newsItem->name);
           @endphp
           <article class="news-card">
             <a href="{{ route('news.detail', $nSlug) }}" class="news-card-img-wrap">
-              <img src="{{ asset($nImg) }}" alt="{{ $newsItem->name }}" class="news-card-img" loading="lazy">
+              <img loading="lazy" decoding="async" src="{{ asset($nImg) }}" alt="{{ $newsItem->name }}" class="news-card-img">
             </a>
             <div class="news-card-body">
               <p class="news-meta"><span class="news-category">Harvest Stories</span> · {{ date('M d, Y', strtotime($newsItem->date ?? now())) }}</p>

@@ -9,7 +9,7 @@
                 <h3>{{ $production->name }}</h3>
                 <div>{!! $production->description !!}</div>
             </div>
-            <div class="col-md-6 order-md-1"> <img src="{{ $production->url_image }}" alt="{{ $production->name }}"
+            <div class="col-md-6 order-md-1"> <img loading="lazy" decoding="async" src="{{ $production->url_image }}" alt="{{ $production->name }}"
                     class="service-img"> </div>
         </div>
         @else
@@ -19,7 +19,7 @@
                 <h3>{{ $production->name }}</h3>
                 <div>{!! $production->description !!}</div>
             </div>
-            <div class="col-md-6"><img src="{{ $production->url_image }}" alt="{{ $production->name }}"
+            <div class="col-md-6"><img loading="lazy" decoding="async" src="{{ $production->url_image }}" alt="{{ $production->name }}"
                     class="service-img"> </div>
         </div>
         @endif

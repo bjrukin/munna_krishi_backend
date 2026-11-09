@@ -43,6 +43,7 @@
                                 <th width="100">Date</th>
                                 <th>Title</th>
                                 <th width="150">Status</th>
+                                <th width="130">Homepage</th>
                                 <th width="150">Action</th>
                             </tr>
                         </thead>
@@ -60,6 +61,16 @@
                                         <span class="switch-label" data-on="Show" data-off="Hide"></span>
                                         <span class="switch-handle"></span>
                                     </label>
+                                </td>
+                                <td>
+                                    <button type="button"
+                                        class="btn btn-sm {{ $notice->is_featured ? 'btn-success' : 'btn-outline-secondary' }} feature-notice"
+                                        data-id="{{ $notice->id }}"
+                                        aria-pressed="{{ $notice->is_featured ? 'true' : 'false' }}"
+                                        title="{{ $notice->is_featured ? 'Featured on homepage' : 'Feature on homepage' }}">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                        {{ $notice->is_featured ? 'Featured' : 'Feature' }}
+                                    </button>
                                 </td>
                                 <td style="vertical-align:middle">
                                     <a href="{{route('admin.notice.addEdit', ['id'=>$notice->id])}}"> <span

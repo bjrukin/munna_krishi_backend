@@ -28,7 +28,7 @@ class HomeController extends Controller {
 
         $data['banners'] = Banner::where('status', 1)->get();
 
-        $productLimit = (int) ($sectionSettings['products']->settings['limit'] ?? 6);
+        $productLimit = min(4, max(1, (int) ($sectionSettings['products']->settings['limit'] ?? 4)));
         $data['featured_products'] = Product::where('status', 1)->orderBy('order', 'asc')->take($productLimit)->get();
 
         $farmLimit = (int) ($sectionSettings['farms']->settings['limit'] ?? 4);
@@ -38,6 +38,7 @@ class HomeController extends Controller {
         $data['testimonials'] = Testimonial::where('status', 1)->inRandomOrder()->limit($testimonialLimit)->get();
 
         $data['notice'] = Notice::where('status', 1)->orderBy('date', 'desc')->first();
+        $data['featured_notice'] = Notice::activeFeatured()->first();
         $newsLimit = (int) ($sectionSettings['news']->settings['limit'] ?? 3);
         $data['latest_notices'] = Notice::where('status', 1)->orderBy('date', 'desc')->take($newsLimit)->get();
 

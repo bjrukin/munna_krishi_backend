@@ -1,5 +1,7 @@
 @extends('layout.site')
 
+@section('body_class', 'news-detail-page')
+
 @section('content')
   @include('site._partial.ticker')
 
@@ -42,17 +44,14 @@
 
       <!-- Feature Image -->
       <div style="margin-top: 2rem; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-line);">
-        <img src="{{ asset($article['image']) }}" alt="{{ $article['title'] }}" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
+        <img loading="lazy" decoding="async" src="{{ asset($article['image']) }}" alt="{{ $article['title'] }}" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
       </div>
 
       <!-- Article Body -->
-      <div style="margin-top: 2.25rem; display: flex; flex-direction: column; gap: 1.25rem; font-size: 1.12rem; line-height: 1.85; color: #354f40;">
-        @if(isset($article['content']) && is_array($article['content']))
-          @foreach($article['content'] as $para)
-            <p>{{ $para }}</p>
-          @endforeach
-        @else
-          {!! $article['description'] ?? '' !!}
+      <div class="article-body" style="margin-top: 2.25rem; font-size: 1.12rem; line-height: 1.85; color: #354f40;">
+        {!! $article['content'] ?? '' !!}
+        @if(!empty($article['contact_note']))
+          <p>{{ $article['contact_note'] }}</p>
         @endif
       </div>
     </article>

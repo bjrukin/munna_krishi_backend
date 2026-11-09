@@ -17,15 +17,7 @@ class NoticeController extends Controller
 
         $dbNotices = Notice::where('status', 1)->orderBy('date', 'desc')->get();
 
-        $defaultImages = [
-            'assets/images/gallery/farmer-cutting-millet.jpg',
-            'assets/images/farms/beekeeper-field.jpg',
-            'assets/images/products/greens-seasonal.jpg',
-            'assets/images/farms/farmer-portrait.jpg',
-            'assets/images/farms/tea-field.jpg',
-        ];
-
-        $data['articles'] = $dbNotices->map(function ($n, $idx) use ($defaultImages) {
+        $data['articles'] = $dbNotices->map(function ($n) {
             $slug = Str::slug($n->name);
             return [
                 'id' => $n->id,
@@ -36,7 +28,7 @@ class NoticeController extends Controller
                 'nepali_date' => date('Y', strtotime($n->date ?? now())),
                 'author' => 'Munaa Krishi Team',
                 'read_time' => '3 min read',
-                'image' => $defaultImages[$idx % count($defaultImages)],
+                'image' => $n->display_image,
                 'summary' => Str::limit(strip_tags($n->description ?? ''), 120),
             ];
         })->toArray();
@@ -66,12 +58,10 @@ class NoticeController extends Controller
             'nepali_date' => date('Y', strtotime($noticeModel->date ?? now())),
             'author' => 'Munaa Editorial Team',
             'read_time' => '3 min read',
-            'image' => 'assets/images/gallery/farmer-cutting-millet.jpg',
+            'image' => $noticeModel->display_image,
             'summary' => Str::limit(strip_tags($noticeModel->description ?? ''), 160),
-            'content' => [
-                $noticeModel->description ?? 'No additional content provided for this notice.',
-                'For additional information, farmer partnerships, or procurement questions related to this update, please contact Munaa Krishi head office in Sanepa, Lalitpur at +977-98031 65605.'
-            ]
+            'content' => $noticeModel->description ?? '<p>No additional content provided for this notice.</p>',
+            'contact_note' => 'For additional information, farmer partnerships, or procurement questions related to this update, please contact Munaa Krishi head office in Sanepa, Lalitpur at +977-98031 65605.'
         ];
 
         $other_articles = Notice::where('status', 1)
@@ -85,7 +75,7 @@ class NoticeController extends Controller
                     'title' => $n->name,
                     'category' => 'Updates',
                     'date' => date('M d, Y', strtotime($n->date ?? now())),
-                    'image' => 'assets/images/products/greens-seasonal.jpg',
+                    'image' => $n->display_image,
                     'summary' => Str::limit(strip_tags($n->description ?? ''), 90),
                 ];
             })->toArray();
@@ -94,7 +84,7 @@ class NoticeController extends Controller
         $data['metahead'] = 'seo';
         $data['page_title'] = $article['title'];
         $data['article'] = $article;
-        $data['other_articles'] = $other_articles;
+        $data['related'] = $other_articles;
 
         return view('site.news.detail', $data);
     }

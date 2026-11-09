@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                <div class="fst-img"> <img src="{{ $welcome_text->url_image }}"
+                <div class="fst-img"> <img loading="lazy" decoding="async" src="{{ $welcome_text->url_image }}"
                         alt="worker working in fabric industry"> </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">

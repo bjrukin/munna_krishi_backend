@@ -9,6 +9,10 @@ class Banner extends Model {
     protected $appends  = ['url_image'];
 
     public function getUrlImageAttribute() {
-        return asset('storage/uploads/banner/' . $this->image);
+        if (str_starts_with($this->image, 'assets/') || str_starts_with($this->image, 'http')) {
+            return asset($this->image);
+        }
+
+        return asset('storage/banner/' . $this->image);
     }
 }

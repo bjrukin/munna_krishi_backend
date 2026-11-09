@@ -10,7 +10,7 @@
                 @foreach ($why_us as $data)
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="strn_lsts-block align-items-center justify-content-center h-100-thar">
-                        <div class="strn-icon"> <img src="{{ $data->url_image }}" alt="{{ $data->name }}">
+                        <div class="strn-icon"> <img loading="lazy" decoding="async" src="{{ $data->url_image }}" alt="{{ $data->name }}">
                         </div>
                         <h3 class="strn-title">{{ $data->name }}</h3>
                         <div class="hover_content d-flex align-items-center justify-content-center h-100-thar">

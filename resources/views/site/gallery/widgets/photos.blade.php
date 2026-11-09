@@ -5,7 +5,7 @@
             @foreach($row->images as $image)
             <div class="image-container">
                 <a href="{{ $image->url_image }}" data-fancybox="gallery">
-                    <img src="{{ $image->url_image }}" alt="{{ $row->name }}">
+                    <img loading="lazy" decoding="async" src="{{ $image->url_image }}" alt="{{ $row->name }}">
                     <div class="single-gallery__icon"> <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 409.6 409.6">
                             <path

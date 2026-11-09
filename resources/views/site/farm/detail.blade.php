@@ -32,7 +32,7 @@
             </div>
 
             <div style="margin-top: 2rem; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-line);">
-              <img src="{{ asset($farm['image']) }}" alt="{{ $farm['name'] }}" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
+              <img src="{{ asset($farm['image']) }}" alt="{{ $farm['name'] }}" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;" loading="eager" decoding="async" fetchpriority="high">
             </div>
 
             @if(!empty($farm['practices']))

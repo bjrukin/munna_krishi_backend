@@ -33,6 +33,15 @@ class NoticeController extends Controller
         return $this->service->status($request);
     }
 
+    public function feature(Request $request)
+    {
+        $validated = $request->validate([
+            'id' => ['required', 'integer', 'exists:notices,id'],
+        ]);
+
+        return $this->service->feature((int) $validated['id']);
+    }
+
     public function addEdit(Request $request)
     {
         $id = ($request->id) ? $request->id : 0;

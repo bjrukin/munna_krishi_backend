@@ -15,7 +15,7 @@
               “{{ $t->reviews }}”
             </p>
             <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; border-top: 1px solid var(--color-line); padding-top: 1rem;">
-              <img src="{{ $t->url_image }}" alt="{{ $t->name }}" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-haldi);">
+              <img loading="lazy" decoding="async" src="{{ $t->url_image }}" alt="{{ $t->name }}" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-haldi);">
               <div>
                 <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--color-forest); margin: 0;">{{ $t->name }}</h4>
                 <p style="font-size: 0.88rem; color: var(--color-muted); margin: 0.15rem 0 0;">{{ $t->company }}</p>
@@ -30,7 +30,7 @@
             “Before partnering with Munaa, our Marsi rice would sit waiting for buyers while middlemen negotiated rock bottom rates. Today, our 140 farm families receive guaranteed fair prices and advance scheduling.”
           </p>
           <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; border-top: 1px solid var(--color-line); padding-top: 1rem;">
-            <img src="{{ asset('assets/images/team/team-field.jpg') }}" alt="Prakash Rokaya" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-haldi);">
+            <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-field.jpg') }}" alt="Prakash Rokaya" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-haldi);">
             <div>
               <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--color-forest); margin: 0;">Prakash Rokaya</h4>
               <p style="font-size: 0.88rem; color: var(--color-muted); margin: 0.15rem 0 0;">Sinja High Altitude Cooperative, Jumla</p>
@@ -44,7 +44,7 @@
             “The cold-chain transit Munaa introduced preserves the crisp texture of our Mustang apples down to the valley markets. Farmers now focus entirely on organic orchard care without worrying about post-harvest spoilage.”
           </p>
           <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; border-top: 1px solid var(--color-line); padding-top: 1rem;">
-            <img src="{{ asset('assets/images/team/team-director.jpg') }}" alt="Karma Thakali" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-haldi);">
+            <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-director.jpg') }}" alt="Karma Thakali" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-haldi);">
             <div>
               <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--color-forest); margin: 0;">Karma Thakali</h4>
               <p style="font-size: 0.88rem; color: var(--color-muted); margin: 0.15rem 0 0;">Muktinath Orchard Collective, Marpha</p>
@@ -58,7 +58,7 @@
             “As a mother of two in Lalitpur, knowing my vegetables come straight from Panauti without heavy chemical sprays gives me total peace of mind. The taste is remarkably fresh.”
           </p>
           <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; border-top: 1px solid var(--color-line); padding-top: 1rem;">
-            <img src="{{ asset('assets/images/team/team-quality.jpg') }}" alt="Radha Bajracharya" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-haldi);">
+            <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-quality.jpg') }}" alt="Radha Bajracharya" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-haldi);">
             <div>
               <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--color-forest); margin: 0;">Radha Bajracharya</h4>
               <p style="font-size: 0.88rem; color: var(--color-muted); margin: 0.15rem 0 0;">Munaabazar Regular Customer, Sanepa</p>

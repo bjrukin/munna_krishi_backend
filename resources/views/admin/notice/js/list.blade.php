@@ -1,5 +1,35 @@
 <script>
 $(document).ready(function() {
+    $('.feature-notice').click(function() {
+        const button = $(this);
+
+        $.ajax({
+            url: '{{ route("admin.notice.feature") }}',
+            type: 'POST',
+            data: {
+                id: button.data('id'),
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(data) {
+                Swal.fire({
+                    icon: 'success',
+                    title: data.message,
+                    showConfirmButton: false,
+                    timer: timer
+                });
+                setTimeout(function() { location.reload(); }, timer);
+            },
+            error: function(xhr) {
+                Swal.fire({
+                    icon: 'error',
+                    title: xhr.responseJSON?.message || 'Unable to feature this notice.',
+                    showConfirmButton: false,
+                    timer: timer
+                });
+            }
+        });
+    });
+
     $('.switch-status').change(function() {
         if ($(this).attr('data-status-value') == 0) {
             var val = 1;

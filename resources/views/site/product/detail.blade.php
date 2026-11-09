@@ -6,12 +6,12 @@
   <main>
     <div style="background: var(--color-leaf-soft); border-bottom: 1px solid var(--color-line); padding: 1.25rem 0;">
       <div class="container">
-        <nav class="breadcrumbs" aria-label="Breadcrumb" style="margin-top: 0;">
+        <nav class="breadcrumbs breadcrumbs--light" aria-label="Breadcrumb">
           <a href="{{ route('home') }}">Home</a>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           <a href="{{ route('products') }}">Products</a>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          <span style="color: var(--color-ink); font-weight: 700;">{{ $product['name'] }}</span>
+          <span aria-current="page">{{ $product['name'] }}</span>
         </nav>
       </div>
     </div>
@@ -23,7 +23,7 @@
           <!-- Image Column -->
           <div style="position: relative;">
             <div style="aspect-ratio: 4/3; overflow: hidden; background: var(--color-cream-deep); box-shadow: var(--shadow-sm); border: 1px solid var(--color-line);">
-              <img src="{{ asset($product['image']) }}" alt="{{ $product['name'] }}" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="{{ asset($product['image']) }}" alt="{{ $product['name'] }}" style="width: 100%; height: 100%; object-fit: cover;" loading="eager" decoding="async" fetchpriority="high">
             </div>
             @if(!empty($product['tag']))
               <span class="product-season-badge" style="top: 1rem; left: 1rem; font-size: 0.85rem; padding: 0.35rem 0.85rem;">{{ $product['tag'] }}</span>

@@ -35,7 +35,7 @@
         @if($lead_article)
           <article class="news-lead news-item-wrap" data-category="{{ $lead_article['category'] ?? 'Harvest Stories' }}">
             <a href="{{ route('news.detail', $lead_article['slug']) }}" class="news-lead-img-wrap">
-              <img src="{{ asset($lead_article['image']) }}" alt="{{ $lead_article['title'] }}" class="news-lead-img">
+              <img src="{{ asset($lead_article['image']) }}" alt="{{ $lead_article['title'] }}" class="news-lead-img" loading="eager" decoding="async" fetchpriority="high">
             </a>
             <div class="news-lead-body">
               <p class="news-meta">

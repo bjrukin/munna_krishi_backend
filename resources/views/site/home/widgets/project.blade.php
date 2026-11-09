@@ -10,7 +10,7 @@
                 @foreach ($projects as $project)
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="item-column">
-                            <div class="item-widget-container"><img src="{{ $project->url_image }}" alt="{{ $project->name }}"> </div>
+                            <div class="item-widget-container"><img loading="lazy" decoding="async" src="{{ $project->url_image }}" alt="{{ $project->name }}"> </div>
                             <div class="item-element-container">
                                 <h3 class="item-heading-title text-center">{{ $project->name }}</h3>
                             </div>

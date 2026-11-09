@@ -5,7 +5,7 @@
         <h3 class="sec_pg-title">Leading global brands.</h3>
         <div id="clients-carousel" class="owl-carousel owl-theme">
             @foreach ($brands as $brand)
-            <div class="client-logo"> <img src="{{ $brand->url_image }}" alt="{{ $brand->name }}"> </div>
+            <div class="client-logo"> <img loading="lazy" decoding="async" src="{{ $brand->url_image }}" alt="{{ $brand->name }}"> </div>
             @endforeach
         </div>
     </div>

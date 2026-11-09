@@ -2,8 +2,25 @@
 namespace App\Services\Admin;
 
 use App\Models\Notice;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 
 class NoticeService {
+    public function feature(int $noticeId): JsonResponse
+    {
+        $notice = Notice::findOrFail($noticeId);
+
+        DB::transaction(function () use ($notice): void {
+            Notice::where('is_featured', true)->update(['is_featured' => false]);
+            $notice->update(['is_featured' => true]);
+        });
+
+        return response()->json([
+            'message' => 'Notice featured on the homepage successfully.',
+            'status' => 200,
+        ]);
+    }
+
     public function list($per_page, $page, $q) {
         try {
             $data['q'] = $q;

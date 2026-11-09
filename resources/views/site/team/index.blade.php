@@ -28,7 +28,7 @@
                 @php
                   $tImg = $teamMember->image ? ((str_starts_with($teamMember->image, 'assets/') || str_starts_with($teamMember->image, 'http')) ? asset($teamMember->image) : asset('storage/uploads/team/' . $teamMember->image)) : asset('assets/images/team/team-director.jpg');
                 @endphp
-                <img src="{{ $tImg }}" alt="{{ $teamMember->name }}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
+                <img loading="lazy" decoding="async" src="{{ $tImg }}" alt="{{ $teamMember->name }}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
                 <div style="padding: 1.35rem; flex: 1; display: flex; flex-direction: column;">
                   <span style="font-size: 0.82rem; font-weight: 700; color: var(--color-sindoor); text-transform: uppercase;">{{ $teamMember->department ?? 'Team' }}</span>
                   <h3 style="margin-top: 0.2rem; font-size: 1.25rem; font-weight: 800; color: var(--color-ink);">{{ $teamMember->name }}</h3>
@@ -42,7 +42,7 @@
           @else
             <!-- Member 1 -->
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; display: flex; flex-direction: column;">
-              <img src="{{ asset('assets/images/team/team-director.jpg') }}" alt="Sabina Shrestha" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
+              <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-director.jpg') }}" alt="Sabina Shrestha" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
               <div style="padding: 1.35rem; flex: 1; display: flex; flex-direction: column;">
                 <span style="font-size: 0.82rem; font-weight: 700; color: var(--color-sindoor); text-transform: uppercase;">Management</span>
                 <h3 style="margin-top: 0.2rem; font-size: 1.25rem; font-weight: 800; color: var(--color-ink);">Sabina Shrestha</h3>
@@ -55,7 +55,7 @@
 
             <!-- Member 2 -->
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; display: flex; flex-direction: column;">
-              <img src="{{ asset('assets/images/team/team-operations.jpg') }}" alt="Bikash Thapa Magar" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
+              <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-operations.jpg') }}" alt="Bikash Thapa Magar" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
               <div style="padding: 1.35rem; flex: 1; display: flex; flex-direction: column;">
                 <span style="font-size: 0.82rem; font-weight: 700; color: var(--color-sindoor); text-transform: uppercase;">Operations</span>
                 <h3 style="margin-top: 0.2rem; font-size: 1.25rem; font-weight: 800; color: var(--color-ink);">Bikash Thapa Magar</h3>
@@ -68,7 +68,7 @@
 
             <!-- Member 3 -->
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; display: flex; flex-direction: column;">
-              <img src="{{ asset('assets/images/team/team-field.jpg') }}" alt="Prakash Rokaya" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
+              <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-field.jpg') }}" alt="Prakash Rokaya" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
               <div style="padding: 1.35rem; flex: 1; display: flex; flex-direction: column;">
                 <span style="font-size: 0.82rem; font-weight: 700; color: var(--color-sindoor); text-transform: uppercase;">Field Team</span>
                 <h3 style="margin-top: 0.2rem; font-size: 1.25rem; font-weight: 800; color: var(--color-ink);">Prakash Rokaya</h3>
@@ -81,7 +81,7 @@
 
             <!-- Member 4 -->
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; display: flex; flex-direction: column;">
-              <img src="{{ asset('assets/images/team/team-quality.jpg') }}" alt="Anusha Karki" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
+              <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-quality.jpg') }}" alt="Anusha Karki" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
               <div style="padding: 1.35rem; flex: 1; display: flex; flex-direction: column;">
                 <span style="font-size: 0.82rem; font-weight: 700; color: var(--color-sindoor); text-transform: uppercase;">Quality</span>
                 <h3 style="margin-top: 0.2rem; font-size: 1.25rem; font-weight: 800; color: var(--color-ink);">Anusha Karki</h3>

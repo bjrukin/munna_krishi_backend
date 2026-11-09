@@ -25,7 +25,7 @@
                 $cName = isset($chairman) && $chairman->name ? $chairman->name : 'Aarav Shrestha';
                 $cDesignation = isset($chairman) && $chairman->designation ? $chairman->designation : 'Chairperson, Munaa Krishi Limited';
               @endphp
-              <img src="{{ $cImg }}" alt="{{ $cName }}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
+              <img loading="lazy" decoding="async" src="{{ $cImg }}" alt="{{ $cName }}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover;">
               <div style="padding: 1.25rem 1.5rem; background: #ffffff; border-top: 1px solid var(--color-line);">
                 <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--color-ink);">{{ $cName }}</h2>
                 <p style="color: var(--color-muted); font-size: 0.95rem; margin-top: 0.2rem;">{{ $cDesignation }}</p>

@@ -9,7 +9,7 @@
   <div class="container footer-grid">
     <div>
       <div class="footer-logo">
-        <img src="{{ asset('assets/images/brand/munaa-logo-enhanced.png') }}" alt="Munaa Krishi">
+        <img loading="lazy" decoding="async" src="{{ asset('assets/images/brand/munaa-logo-enhanced.png') }}" alt="Munaa Krishi">
       </div>
       <p class="footer-desc">
         A social enterprise and agribusiness initiative jointly envisioned by NRNA and the Government of Nepal.

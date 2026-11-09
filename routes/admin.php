@@ -121,6 +121,7 @@ Route::group(['middleware' => 'auth.admin'], function () {
         Route::post('/store', [NoticeController::class, 'store'])->name('admin.notice.store');
         Route::post('/delete', [NoticeController::class, 'delete'])->name('admin.notice.delete');
         Route::post('/status', [NoticeController::class, 'status'])->name('admin.notice.status');
+        Route::post('/feature', [NoticeController::class, 'feature'])->name('admin.notice.feature');
     });
 
     Route::prefix('office')->group(function () {

@@ -36,7 +36,7 @@
                   @php
                     $img = $director->image ? ((str_starts_with($director->image, 'assets/') || str_starts_with($director->image, 'http')) ? asset($director->image) : asset('storage/uploads/leadership/' . $director->image)) : asset('assets/images/team/team-director.jpg');
                   @endphp
-                  <img src="{{ $img }}" alt="{{ $director->name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                  <img loading="lazy" decoding="async" src="{{ $img }}" alt="{{ $director->name }}" style="width: 100%; height: 100%; object-fit: cover;">
                   <span style="position: absolute; bottom: 0; left: 0; background: var(--color-forest); color: #ffffff; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.85rem;">
                     {{ $director->designation }}
                   </span>
@@ -53,7 +53,7 @@
             <!-- Director 1 -->
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; display: flex; flex-direction: column; transition: transform 200ms ease, box-shadow 200ms ease;" class="hover-lift">
               <div style="position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--color-leaf-soft);">
-                <img src="{{ asset('assets/images/team/team-director.jpg') }}" alt="Aarav Shrestha" style="width: 100%; height: 100%; object-fit: cover;">
+                <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-director.jpg') }}" alt="Aarav Shrestha" style="width: 100%; height: 100%; object-fit: cover;">
                 <span style="position: absolute; bottom: 0; left: 0; background: var(--color-forest); color: #ffffff; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.85rem;">
                   Chairperson
                 </span>
@@ -69,7 +69,7 @@
             <!-- Director 2 -->
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; display: flex; flex-direction: column; transition: transform 200ms ease, box-shadow 200ms ease;" class="hover-lift">
               <div style="position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--color-leaf-soft);">
-                <img src="{{ asset('assets/images/team/team-quality.jpg') }}" alt="Maya Karki" style="width: 100%; height: 100%; object-fit: cover;">
+                <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-quality.jpg') }}" alt="Maya Karki" style="width: 100%; height: 100%; object-fit: cover;">
                 <span style="position: absolute; bottom: 0; left: 0; background: var(--color-forest); color: #ffffff; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.85rem;">
                   Director
                 </span>
@@ -85,7 +85,7 @@
             <!-- Director 3 -->
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; display: flex; flex-direction: column; transition: transform 200ms ease, box-shadow 200ms ease;" class="hover-lift">
               <div style="position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--color-leaf-soft);">
-                <img src="{{ asset('assets/images/team/team-operations.jpg') }}" alt="Rajan Gurung" style="width: 100%; height: 100%; object-fit: cover;">
+                <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-operations.jpg') }}" alt="Rajan Gurung" style="width: 100%; height: 100%; object-fit: cover;">
                 <span style="position: absolute; bottom: 0; left: 0; background: var(--color-forest); color: #ffffff; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.85rem;">
                   Director
                 </span>
@@ -101,7 +101,7 @@
             <!-- Director 4 -->
             <div style="background: #ffffff; border: 1px solid var(--color-line); overflow: hidden; display: flex; flex-direction: column; transition: transform 200ms ease, box-shadow 200ms ease;" class="hover-lift">
               <div style="position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--color-leaf-soft);">
-                <img src="{{ asset('assets/images/team/team-field.jpg') }}" alt="Sita Adhikari" style="width: 100%; height: 100%; object-fit: cover;">
+                <img loading="lazy" decoding="async" src="{{ asset('assets/images/team/team-field.jpg') }}" alt="Sita Adhikari" style="width: 100%; height: 100%; object-fit: cover;">
                 <span style="position: absolute; bottom: 0; left: 0; background: var(--color-forest); color: #ffffff; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.85rem;">
                   Director
                 </span>

@@ -5,7 +5,7 @@
 <header class="site-header">
   <div class="container header-inner">
     <a href="{{ route('home') }}" class="site-logo" aria-label="Munaa Krishi Home">
-      <img src="{{ asset('assets/images/brand/munaa-logo-enhanced.png') }}" alt="Munaa Krishi Logo" width="1200" height="468">
+      <img src="{{ asset('assets/images/brand/munaa-logo-enhanced.png') }}" alt="Munaa Krishi Logo" width="1200" height="468" loading="eager" decoding="async">
     </a>
 
     <!-- Desktop Nav -->
@@ -117,7 +117,7 @@
   <div class="drawer-panel">
     <div class="drawer-header">
       <a href="{{ route('home') }}" aria-label="Munaa Krishi Home">
-        <img src="{{ asset('assets/images/brand/munaa-logo-enhanced.png') }}" alt="Munaa Krishi">
+        <img src="{{ asset('assets/images/brand/munaa-logo-enhanced.png') }}" alt="Munaa Krishi" loading="eager" decoding="async">
       </a>
       <button type="button" class="drawer-close" aria-label="Close menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
